@@ -25,4 +25,3 @@ except:
 
 finally:
    conn.close()
-print("hello world")
