@@ -1,0 +1,27 @@
+import psycopg2 as ps
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+try:
+   conn = ps.connect(host='', dbname='', user='', password='')
+
+   cur = conn.cursor()
+
+   cur.execute(
+       'SELECT "Date", "Value" FROM timeseries."Timepoints" WHERE "IndicatorID"= ORDER BY "Date" desc LIMIT  10')
+
+   icerik = cur.fetchall()
+
+   df = pd.DataFrame(data=icerik, columns=['Date', 'Value'])
+
+   print(df)
+   print(type(df))
+   df.plot()
+   plt.show()
+
+except:
+   print("Hata olustu")
+
+finally:
+   conn.close()
