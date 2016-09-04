@@ -1,0 +1,20 @@
+
+import numpy as np
+import pandas as pd
+import xlrd
+import os
+import matplotlib.pyplot as mt
+
+# txt = pd.read_csv('C:/Users/orhan.vatandas/Desktop/test.txt', sep="\t", header=0)
+df = pd.read_excel('C:/Users/orhan.vatandas/Desktop/test.xlsx', sep="\t", header=0)
+cor = df.corr(min_periods=5)
+cor2 = df['boy'].corr(df['kilo'], method='pearson')
+
+df.plot()
+mt.xlabel('isim')
+mt.ylabel('deger')
+mt.show()
+
+print (df)
+print (cor)
+print (cor2)
