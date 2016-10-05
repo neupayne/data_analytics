@@ -20,7 +20,7 @@ try:
    numpymatrix = df.as_matrix()
    compsubway = numpymatrix[:,1]
 
-   breaks_compsubway = jenkspy.jenks_breaks(compsubway, nb_class=99)
+   breaks_compsubway = jenkspy.jenks_breaks(compsubway, nb_class=100)
    csvfile = "C:/Users/deniz.saglam/Desktop/natural breaks value/airportdis"
    with open(csvfile, "w") as output:
        writer = csv.writer(output, lineterminator='\n')
