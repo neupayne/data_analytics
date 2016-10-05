@@ -6,14 +6,15 @@ import jenkspy
 import csv
 
 try:
-   conn = ps.connect(host='', port='', dbname='', user='', password='')
+   conn = ps.connect(host='192.168.20.232', port='5432', dbname='RDMS', user='webacc', password='+wb**!12_')
 
    cur = conn.cursor()
 
    cur.execute(
-       'SELECT "rehexid", "airportdis" FROM geoserver."rehex_Table" where airportdis > 0 ')
+       'SELECT "rehexid", "nevermarri" FROM geoserver."rehex_Table" where nevermarri > 0 ')
 
    icerik = cur.fetchall()
+   ##print(icerik)
    col_names = [cn[0] for cn in cur.description]
 
    df = pd.DataFrame(columns=col_names, data=icerik)
@@ -21,7 +22,8 @@ try:
    compsubway = numpymatrix[:,1]
 
    breaks_compsubway = jenkspy.jenks_breaks(compsubway, nb_class=100)
-   csvfile = "C:/Users/deniz.saglam/Desktop/natural breaks value/airportdis"
+
+   csvfile = "C:/Users/deniz.saglam/Desktop/natural breaks value/nevermarri"
    with open(csvfile, "w") as output:
        writer = csv.writer(output, lineterminator='\n')
        for val in breaks_compsubway:
@@ -32,3 +34,7 @@ try:
 
 except:
    print("Hata olustu")
+
+finally:
+   conn.close()
+
