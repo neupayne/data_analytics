@@ -19,22 +19,21 @@ try:
 
    df = pd.DataFrame(columns=col_names, data=icerik)
    numpymatrix = df.as_matrix()
-   compsubway = numpymatrix[:,1]
+   cluster = numpymatrix[:,1]
 
-   breaks_compsubway = jenkspy.jenks_breaks(compsubway, nb_class=100)
+   breaks = jenkspy.jenks_breaks(cluster, nb_class=100)
 
-   csvfile = "C:/Users/deniz.saglam/Desktop/natural breaks value/nevermarri"
+   csvfile = "C:/Users/deniz.saglam/Desktop/natural breaks value/tesrt"
    with open(csvfile, "w") as output:
        writer = csv.writer(output, lineterminator='\n')
-       for val in breaks_compsubway:
-           writer.writerow(breaks_compsubway)
+       for val in breaks:
+           writer.writerow(breaks)
 
-   print(breaks_compsubway)
-   #print(len(breaks_compsubway))
+   print(breaks)
+   # print(len(breaks_compsubway))
 
 except:
-   print("Hata olustu")
+    print("Hata olustu")
 
 finally:
-   conn.close()
-
+    conn.close()
