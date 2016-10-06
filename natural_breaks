@@ -30,7 +30,7 @@ try:
            writer.writerow(breaks)
 
    print(breaks)
-   # print(len(breaks_compsubway))
+   # print(len(breaks))
 
 except:
     print("Hata olustu")
