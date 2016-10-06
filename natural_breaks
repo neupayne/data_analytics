@@ -6,7 +6,7 @@ import jenkspy
 import csv
 
 try:
-   conn = ps.connect(host='192.168.20.232', port='5432', dbname='RDMS', user='webacc', password='+wb**!12_')
+   conn = ps.connect(host='', port='', dbname='', user='', password='')
 
    cur = conn.cursor()
 
