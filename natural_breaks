@@ -6,12 +6,12 @@ import jenkspy
 import csv
 
 try:
-   conn = ps.connect(host='', port='', dbname='', user='', password='')
+   conn = ps.connect(host='192.168.20.232', port='5432', dbname='RDMS', user='webacc', password='+wb**!12_')
 
    cur = conn.cursor()
 
    cur.execute(
-       'SELECT "rehexid", "nevermarri" FROM geoserver."rehex_Table" where nevermarri > 0 ')
+       'SELECT "rehexid", "age65_" FROM geoserver."rehex_Table" where "age65_" > 1')
 
    icerik = cur.fetchall()
    ##print(icerik)
@@ -21,16 +21,16 @@ try:
    numpymatrix = df.as_matrix()
    cluster = numpymatrix[:,1]
 
-   breaks = jenkspy.jenks_breaks(cluster, nb_class=100)
+   breaks = jenkspy.jenks_breaks(cluster, nb_class=99)
 
-   csvfile = "C:/Users/deniz.saglam/Desktop/natural breaks value/tesrt"
+   csvfile = "C:/Users/deniz.saglam/Desktop/natural breaks value/age65_"
    with open(csvfile, "w") as output:
        writer = csv.writer(output, lineterminator='\n')
        for val in breaks:
            writer.writerow(breaks)
 
    print(breaks)
-   # print(len(breaks))
+   #print(len(breaks))
 
 except:
     print("Hata olustu")
